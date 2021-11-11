@@ -13,9 +13,16 @@ const Register = ({ navigation }) => {
 
     const register = () => {
         auth.createUserWithEmailAndPassword(email, password)
-            .then((authUser) => {})
+            .then((authUser) => {
+                console.log("here")
+                authUser.user.updateProfile({
+                    displayName: fullName,
+                    photoURL: picture || require("../assets/images/user.png"),
+                })
+                alert("nice")
+            })
             .catch((e) => {
-                alert(e)
+                alert(e.message)
             })
     }
 

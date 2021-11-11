@@ -1,15 +1,26 @@
 import { StatusBar } from "expo-status-bar"
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { KeyboardAvoidingView, StyleSheet, View } from "react-native"
 import { Button, Image, Input } from "react-native-elements"
 import Container from "../components/generals/Container"
 import Colors from "../utils/Colors"
 import GlobalStyles from "../utils/GlobalStyles"
 import tailwind from "tailwind-rn"
+import { auth } from "../utils/firebase"
 
 const Login = ({ navigation }) => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged((authUser) => {
+            if (authUser) {
+                navigation.replace("Home")
+            }
+        })
+
+        return unsubscribe
+    }, [])
 
     const signIn = () => {}
 
