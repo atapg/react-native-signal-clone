@@ -1,14 +1,65 @@
-import React from "react"
-import { StyleSheet, Text, View } from "react-native"
+import { StatusBar } from "expo-status-bar"
+import React, { useState } from "react"
+import { KeyboardAvoidingView, StyleSheet, View } from "react-native"
+import { Button, Image, Input } from "react-native-elements"
+import Container from "../components/generals/Container"
+import Colors from "../utils/Colors"
+import GlobalStyles from "../utils/GlobalStyles"
+import tailwind from "tailwind-rn"
 
 const Login = () => {
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+
+    const signIn = () => {}
+
     return (
-        <View>
-            <Text>Login Page</Text>
-        </View>
+        <Container>
+            <KeyboardAvoidingView behavior="padding">
+                <StatusBar style="auto" />
+                <View style={GlobalStyles.center}>
+                    <Image
+                        source={require("../assets/images/logo.png")}
+                        style={{ width: 200, height: 200 }}
+                    />
+                </View>
+                <View style={styles.inputContainer}>
+                    <Input
+                        placeholder="Email"
+                        autoFocus
+                        type="email"
+                        value={email}
+                        onChangeText={(t) => setEmail(t)}
+                    />
+                    <Input
+                        placeholder="Password"
+                        secureTextEntry
+                        type="password"
+                        value={password}
+                        onChangeText={(t) => setPassword(t)}
+                    />
+                </View>
+                <Button
+                    title="Login"
+                    color={Colors.primaryColor}
+                    buttonStyle={tailwind("mb-2")}
+                    onPress={signIn}
+                ></Button>
+                <Button
+                    title="Register"
+                    color={Colors.primaryColor}
+                    type="outline"
+                ></Button>
+            </KeyboardAvoidingView>
+        </Container>
     )
 }
 
 export default Login
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    inputContainer: {
+        margin: -8,
+        marginBottom: 20,
+    },
+})
