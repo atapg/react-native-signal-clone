@@ -3,7 +3,6 @@ import { StyleSheet, Text, View } from "react-native"
 import { Button, Input } from "react-native-elements"
 import Container from "../components/generals/Container"
 import Colors from "../utils/Colors"
-import { auth } from "../utils/firebase"
 
 const Register = ({ navigation }) => {
     const [fullName, setFullName] = useState("")
@@ -11,20 +10,7 @@ const Register = ({ navigation }) => {
     const [password, setPassword] = useState("")
     const [picture, setPicture] = useState("")
 
-    const register = () => {
-        auth.createUserWithEmailAndPassword(email, password)
-            .then((authUser) => {
-                console.log("here")
-                authUser.user.updateProfile({
-                    displayName: fullName,
-                    photoURL: picture || require("../assets/images/user.png"),
-                })
-                alert("nice")
-            })
-            .catch((e) => {
-                alert(e.message)
-            })
-    }
+    const register = () => {}
 
     return (
         <Container>

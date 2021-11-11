@@ -1,10 +1,19 @@
 import React from "react"
-import { StyleSheet, SafeAreaView, ScrollView } from "react-native"
+import {
+    StyleSheet,
+    SafeAreaView,
+    ScrollView,
+    KeyboardAvoidingView,
+} from "react-native"
 
 const Container = (props) => {
     return (
-        <SafeAreaView style={styles.container}>
-            <ScrollView style={styles.scrollView}>{props.children}</ScrollView>
+        <SafeAreaView style={{ ...styles.container, ...props.style }}>
+            <ScrollView style={props.noPadding ? null : styles.scrollView}>
+                <KeyboardAvoidingView behavior="padding">
+                    {props.children}
+                </KeyboardAvoidingView>
+            </ScrollView>
         </SafeAreaView>
     )
 }
@@ -14,8 +23,7 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     scrollView: {
-        marginHorizontal: 20,
-        paddingTop: 20,
+        padding: 20,
     },
 })
 
