@@ -7,7 +7,7 @@ import Colors from "../utils/Colors"
 import GlobalStyles from "../utils/GlobalStyles"
 import tailwind from "tailwind-rn"
 
-const Login = () => {
+const Login = ({ navigation }) => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
@@ -49,6 +49,7 @@ const Login = () => {
                     title="Register"
                     color={Colors.primaryColor}
                     type="outline"
+                    onPress={() => navigation.navigate("Register")}
                 ></Button>
             </KeyboardAvoidingView>
         </Container>
@@ -60,6 +61,6 @@ export default Login
 const styles = StyleSheet.create({
     inputContainer: {
         margin: -8,
-        marginBottom: 20,
+        marginBottom: 10,
     },
 })

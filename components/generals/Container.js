@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
     },
     scrollView: {
         marginHorizontal: 20,
+        paddingTop: 20,
     },
 })
 
