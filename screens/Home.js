@@ -1,16 +1,19 @@
 import React from "react"
-import { StyleSheet, Text, View } from "react-native"
+import { ScrollView, StyleSheet, Text, View } from "react-native"
 import { Button, FAB } from "react-native-elements"
+import Message from "../components/chat/Message"
 import Container from "../components/generals/Container"
 import Wrapper from "../components/generals/Wrapper"
 import Colors from "../utils/Colors"
 
 const Home = () => {
     return (
-        <Wrapper>
-            <View>
-                <Text>Hello</Text>
-            </View>
+        <>
+            <ScrollView>
+                {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+                    <Message key={i} />
+                ))}
+            </ScrollView>
             <View style={styles.floatingBtn}>
                 <Button
                     title="New Chat"
@@ -18,7 +21,7 @@ const Home = () => {
                     color={Colors.primaryColor}
                 ></Button>
             </View>
-        </Wrapper>
+        </>
     )
 }
 

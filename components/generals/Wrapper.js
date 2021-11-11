@@ -4,7 +4,7 @@ import { KeyboardAvoidingView, StyleSheet, Text, View } from "react-native"
 const Wrapper = (props) => {
     return (
         <View style={{ ...styles.container, ...props.style }}>
-            <KeyboardAvoidingView behavior="padding" style={styles.container}>
+            <KeyboardAvoidingView behavior="padding">
                 {props.children}
             </KeyboardAvoidingView>
         </View>
