@@ -6,6 +6,7 @@ import Container from "../components/generals/Container"
 import Colors from "../utils/Colors"
 import GlobalStyles from "../utils/GlobalStyles"
 import tailwind from "tailwind-rn"
+import axios from "axios"
 
 const Login = ({ navigation }) => {
     const [email, setEmail] = useState("")
@@ -14,7 +15,11 @@ const Login = ({ navigation }) => {
     useEffect(() => {}, [])
 
     const signIn = () => {
-        navigation.replace("Home")
+        // navigation.replace("Home")
+        // axios
+        //     .get("https://jsonplaceholder.typicode.com/todos/2")
+        //     .then((res) => console.log(res.data))
+        //     .catch((e) => console.log(e))
     }
 
     return (
@@ -35,7 +40,7 @@ const Login = ({ navigation }) => {
                     onChangeText={(t) => setEmail(t)}
                 />
                 <Input
-                    placeholder="Password"
+                    placeholder="رمز عبور"
                     secureTextEntry
                     type="password"
                     value={password}
@@ -43,7 +48,7 @@ const Login = ({ navigation }) => {
                 />
             </View>
             <Button
-                title="Login"
+                title="ورود"
                 color={Colors.primaryColor}
                 buttonStyle={tailwind("mb-2")}
                 onPress={signIn}

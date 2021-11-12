@@ -10,6 +10,8 @@ import SingleChat from "./screens/SingleChat"
 import { Button } from "react-native-elements"
 import { Ionicons } from "@expo/vector-icons"
 import { useStateValue } from "./store/StateProvider"
+import Test from "./screens/Test"
+import Logo from "./components/test/Logo"
 
 const Stack = createNativeStackNavigator()
 
@@ -34,7 +36,7 @@ export default function App() {
     return (
         <NavigationContainer>
             <Stack.Navigator screenOptions={globalScreenOptions}>
-                <Stack.Screen
+                {/* <Stack.Screen
                     name="Welcome"
                     component={Welcome}
                     options={{
@@ -55,8 +57,21 @@ export default function App() {
                     name="SingleChat"
                     component={SingleChat}
                     options={{
-                        headerTitle: currentChatUser.username,
+                        headerTitle: currentChatUser
+                            ? currentChatUser.username
+                            : "Guest",
                         ...headerWithButton,
+                    }}
+                /> */}
+                <Stack.Screen
+                    name="Test"
+                    component={Test}
+                    options={{
+                        headerTitle: (props) => <Logo {...props} />,
+                        headerStyle: {
+                            backgroundColor: "white",
+                        },
+                        headerTitleAlign: "center",
                     }}
                 />
             </Stack.Navigator>
