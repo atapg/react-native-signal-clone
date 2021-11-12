@@ -72,6 +72,7 @@ export default function App() {
                             backgroundColor: "white",
                         },
                         headerTitleAlign: "center",
+                        contentStyle: { backgroundColor: "white" },
                     }}
                 />
             </Stack.Navigator>
