@@ -4,9 +4,14 @@ import { Avatar, Icon } from "react-native-elements"
 import GlobalStyles from "../../utils/GlobalStyles"
 import { Ionicons } from "@expo/vector-icons"
 
-const Message = () => {
+const Message = ({ navigation }) => {
     return (
-        <TouchableOpacity style={styles.touchableOpacity}>
+        <TouchableOpacity
+            style={styles.touchableOpacity}
+            onPress={() =>
+                navigation.navigate("SingleChat", { data: "something" })
+            }
+        >
             <View style={styles.container}>
                 <View>
                     <Avatar

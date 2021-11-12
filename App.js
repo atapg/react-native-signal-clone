@@ -6,6 +6,9 @@ import Colors from "./utils/Colors"
 import Register from "./screens/Register"
 import Home from "./screens/Home"
 import Welcome from "./screens/Welcome"
+import SingleChat from "./screens/SingleChat"
+import { Button } from "react-native-elements"
+import { Ionicons } from "@expo/vector-icons"
 
 const Stack = createNativeStackNavigator()
 
@@ -15,11 +18,20 @@ const globalScreenOptions = {
     headerTintColor: "white",
 }
 
+const headerWithButton = {
+    headerRight: () => (
+        <Button
+            onPress={() => alert("This is a button!")}
+            icon={<Ionicons name="ellipsis-vertical" size={20} color="white" />}
+        />
+    ),
+}
+
 export default function App() {
     return (
         <NavigationContainer>
             <Stack.Navigator screenOptions={globalScreenOptions}>
-                {/* <Stack.Screen
+                <Stack.Screen
                     name="Welcome"
                     component={Welcome}
                     options={{
@@ -27,12 +39,21 @@ export default function App() {
                     }}
                 />
                 <Stack.Screen name="Login" component={Login} />
-                <Stack.Screen name="Register" component={Register} /> */}
+                <Stack.Screen name="Register" component={Register} />
                 <Stack.Screen
                     name="Home"
                     component={Home}
                     options={{
-                        headerTitle: "Username goes here...",
+                        headerTitle: "Username",
+                        ...headerWithButton,
+                    }}
+                />
+                <Stack.Screen
+                    name="SingleChat"
+                    component={SingleChat}
+                    options={{
+                        headerTitle: "Username of contact",
+                        ...headerWithButton,
                     }}
                 />
             </Stack.Navigator>

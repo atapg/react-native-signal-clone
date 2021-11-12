@@ -6,12 +6,12 @@ import Container from "../components/generals/Container"
 import Wrapper from "../components/generals/Wrapper"
 import Colors from "../utils/Colors"
 
-const Home = () => {
+const Home = ({ navigation }) => {
     return (
         <>
             <ScrollView>
                 {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-                    <Message key={i} />
+                    <Message key={i} navigation={navigation} />
                 ))}
             </ScrollView>
             <View style={styles.floatingBtn}>
