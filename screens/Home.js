@@ -64,6 +64,8 @@ const Home = ({ navigation }) => {
 
     const onRefresh = React.useCallback(() => {
         setRefreshing(true)
+
+        //Start fetching data here then setRefresh to false
         wait(2000).then(() => setRefreshing(false))
     }, [])
 
