@@ -4,7 +4,7 @@ import { Avatar, Icon } from "react-native-elements"
 import GlobalStyles from "../../utils/GlobalStyles"
 import { Ionicons } from "@expo/vector-icons"
 
-const Message = ({ navigation }) => {
+const Message = ({ navigation, image, lastChat, username }) => {
     return (
         <TouchableOpacity
             style={styles.touchableOpacity}
@@ -18,15 +18,15 @@ const Message = ({ navigation }) => {
                         rounded
                         size="medium"
                         source={{
-                            uri: "https://cdn.icon-icons.com/icons2/2506/PNG/512/user_icon_150670.png",
+                            uri: image,
                         }}
                     />
                 </View>
                 <View style={styles.userInfo}>
                     <Text style={{ fontWeight: "bold", fontSize: 20 }}>
-                        Username
+                        {username}
                     </Text>
-                    <Text>Last chat here 100char</Text>
+                    <Text>{lastChat}</Text>
                 </View>
             </View>
             <View style={{ ...GlobalStyles.center, ...{ paddingRight: 15 } }}>
@@ -40,7 +40,7 @@ export default Message
 
 const styles = StyleSheet.create({
     touchableOpacity: {
-        backgroundColor: "#eeeeee",
+        backgroundColor: "#fff",
         flexDirection: "row",
         justifyContent: "space-between",
     },
