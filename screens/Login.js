@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar"
 import React, { useState, useEffect } from "react"
-import { KeyboardAvoidingView, StyleSheet, View } from "react-native"
+import { KeyboardAvoidingView, StyleSheet, Text, View } from "react-native"
 import { Button, Image, Input } from "react-native-elements"
 import Container from "../components/generals/Container"
 import Colors from "../utils/Colors"
