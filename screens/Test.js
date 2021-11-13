@@ -56,6 +56,21 @@ const bestTeachers = [
     },
 ]
 
+const myClasses = [
+    {
+        name: "عطا پروین قدس",
+        time: "18:30",
+        className: "کلاس ریاضی",
+        duration: "1:30",
+    },
+    {
+        name: "عدنان بابکان",
+        time: "15:30",
+        className: "کلاس ادبیات",
+        duration: "1:45",
+    },
+]
+
 const Test = () => {
     const [index, setIndex] = React.useState(0)
     const [routes] = React.useState([
@@ -172,6 +187,87 @@ const Test = () => {
                             یادت نره!
                         </Text>
                     </View>
+
+                    {myClasses.map((item, i) => (
+                        <>
+                            <View style={styles.classes} key={i}>
+                                <View
+                                    style={{
+                                        flexDirection: "row",
+                                        justifyContent: "space-between",
+                                        marginBottom: 15,
+                                    }}
+                                >
+                                    <View style={{ flexDirection: "row" }}>
+                                        <Ionicons
+                                            name="time-outline"
+                                            size={20}
+                                            color="grey"
+                                        />
+                                        <Text
+                                            style={{
+                                                color: Colors.primaryColor,
+                                                marginLeft: 5,
+                                            }}
+                                        >
+                                            {item.duration}
+                                        </Text>
+                                    </View>
+                                    <View
+                                        style={{
+                                            flexDirection: "row",
+                                            alignItems: "center",
+                                        }}
+                                    >
+                                        <Text
+                                            style={{
+                                                color: "grey",
+                                                fontSize: 13,
+                                            }}
+                                        >
+                                            ساعت {item.time}
+                                        </Text>
+                                        <Text
+                                            style={{
+                                                fontSize: 15,
+                                                fontWeight: "bold",
+                                                marginHorizontal: 5,
+                                            }}
+                                        >
+                                            {item.className}
+                                        </Text>
+                                        <Ionicons
+                                            name="warning"
+                                            size={25}
+                                            color={Colors.primaryColor}
+                                        />
+                                    </View>
+                                </View>
+                                <View
+                                    style={{
+                                        flexDirection: "row",
+                                        justifyContent: "flex-end",
+                                        alignItems: "center",
+                                    }}
+                                >
+                                    <Text
+                                        style={{
+                                            fontWeight: "bold",
+                                            color: "grey",
+                                        }}
+                                    >
+                                        {item.name}
+                                    </Text>
+                                    <Ionicons
+                                        name="person"
+                                        style={{ marginLeft: 5 }}
+                                        size={25}
+                                        color="grey"
+                                    />
+                                </View>
+                            </View>
+                        </>
+                    ))}
                 </View>
             </ScrollView>
             <View style={[styles.bottomNav, styles.bottomNavShadow]}>
@@ -194,7 +290,7 @@ export default Test
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingBottom: 60,
+        paddingBottom: 55,
     },
     wrapper: {
         padding: 20,
@@ -228,7 +324,7 @@ const styles = StyleSheet.create({
         left: 0,
         right: 0,
         zIndex: 999,
-        height: 56,
+        height: 55,
         backgroundColor: "white",
         shadowColor: "#000",
         shadowOffset: {
@@ -278,5 +374,19 @@ const styles = StyleSheet.create({
         bottom: 10,
         right: 15,
         flexDirection: "row",
+    },
+    classes: {
+        borderRadius: 15,
+        overflow: "hidden",
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 1,
+        },
+        shadowOpacity: 0.2,
+        shadowRadius: 1.41,
+        elevation: 2,
+        padding: 15,
+        marginBottom: 15,
     },
 })
