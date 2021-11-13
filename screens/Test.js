@@ -134,8 +134,10 @@ const Test = () => {
                     <View style={styles.teachersSlider}>
                         <FlatList
                             data={bestTeachers}
+                            keyExtractor={(item) => item.name}
                             renderItem={({ item }) => (
                                 <TouchableOpacity
+                                    key={item.name}
                                     style={{ backgroundColor: "#fff" }}
                                 >
                                     <View
@@ -161,6 +163,7 @@ const Test = () => {
                                                     .fill()
                                                     .map((_, i) => (
                                                         <Ionicons
+                                                            key={i}
                                                             name="star"
                                                             size={20}
                                                             color="gold"
@@ -178,19 +181,26 @@ const Test = () => {
                         <Button
                             mode="outlined"
                             onPress={() => console.log("clicked")}
-                            color={Colors.primaryColor}
-                            labelStyle={{ fontWeight: "bold" }}
+                            labelStyle={{
+                                fontWeight: "bold",
+                                letterSpacing: 0,
+                            }}
                         >
                             مشاهده همه
                         </Button>
-                        <Text style={{ fontSize: 25, fontWeight: "bold" }}>
-                            یادت نره!
+                        <Text
+                            style={{
+                                fontSize: 25,
+                                fontFamily: "YujiBoku-Regular",
+                            }}
+                        >
+                            Don't forget
                         </Text>
                     </View>
 
                     {myClasses.map((item, i) => (
-                        <>
-                            <View style={styles.classes} key={i}>
+                        <View key={i}>
+                            <View style={styles.classes}>
                                 <View
                                     style={{
                                         flexDirection: "row",
@@ -266,7 +276,7 @@ const Test = () => {
                                     />
                                 </View>
                             </View>
-                        </>
+                        </View>
                     ))}
                 </View>
             </ScrollView>
